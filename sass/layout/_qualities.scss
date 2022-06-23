@@ -1,0 +1,45 @@
+.qualities {
+  padding-top: 94px;
+  padding-bottom: 47px;
+}
+
+.qualities__list {
+  display: flex;
+  margin: 0;
+  font-size: $typical-font-size;
+  letter-spacing: 0.03em;
+}
+
+.list__items {
+  max-width: 270px;
+  &::before {
+    display: block;
+    content: "";
+    height: 120px;
+    background-color: $btn-background-color;
+    border-radius: 4px;
+    margin-bottom: 30px;
+  }
+  &:not(:last-child) {
+    margin-right: 30px;
+  }
+}
+
+@each $icon in antenna, clock, diagram, astronaut {
+  .#{icon}::before {
+    background-image: url(../images/#{icon}.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+.item__title {
+  margin-bottom: 10px;
+  @include font(none, 14px, 1.17, none);
+  text-transform: uppercase;
+}
+
+.item__text {
+  color: $paragraph-text-color;
+  line-height: 1.71;
+}

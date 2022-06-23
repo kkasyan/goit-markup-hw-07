@@ -1,8 +1,16 @@
 @import "./base/common";
 @import "./base/reset";
 @import "./components/container";
+@import "./utils/hidden";
+@import "./utils/mixins";
+@import "./utils/placeholders";
+@import "./utils/variables";
 @import "./components/modal";
 @import "./components/btn";
+@import "./components/logo";
+@import "./components/cards";
+@import "./components/section-header";
+@import "./components/socials";
 @import "./layout/header";
 @import "./layout/hero";
 @import "./layout/qualities";
