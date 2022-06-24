@@ -5,12 +5,13 @@
 @import "./utils/mixins";
 @import "./utils/placeholders";
 @import "./utils/variables";
+@import "./components/card-set";
 @import "./components/modal";
-@import "./components/btn";
 @import "./components/logo";
-@import "./components/cards";
+@import "./layout/portfolio";
 @import "./components/section-header";
 @import "./components/socials";
+@import "./components/subscribe-form";
 @import "./layout/header";
 @import "./layout/hero";
 @import "./layout/qualities";
@@ -18,4 +19,3 @@
 @import "./layout/team";
 @import "./layout/clients";
 @import "./layout/footer";
-@import "./layout/portfolio";

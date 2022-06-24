@@ -6,61 +6,85 @@
   right: 0;
   background-color: rgba(0, 0, 0, 0.2);
   opacity: 1;
-  transition-property: opacity, visibility;
-  transition-duration: 3000ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  @include transition($tp: opacity visibility, $td: 3000ms);
 }
 
 .modal {
   position: absolute;
   min-height: 581px;
   max-width: 528px;
-  background-color: var(--second-text-color);
+  background-color: $second-text-color;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   top: 50%;
   left: 50%;
+  @include transition($tp: transform, $td: 3000ms);
   transform: scale(1) translate(-50%, -50%) rotate(1turn);
   opacity: 1;
-  transition: transform 3000ms cubic-bezier(0.4, 0, 0.2, 1);
   padding-top: 40px;
   padding-right: 40px;
   padding-bottom: 40px;
   padding-left: 40px;
 }
 
-.form-group {
+.form__group {
   display: flex;
   flex-direction: column;
 }
 
-.contact-details-head {
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 1.15;
+.form__close {
+  margin-top: 8px;
+  margin-right: 8px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: $second-text-color;
+  display: flex;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  @include transition($tp: fill);
+  &:hover,
+  &:focus {
+    fill: $accent-color;
+  }
+}
+
+.form__header {
   display: inline-block;
   text-align: center;
-  letter-spacing: 0.03em;
-  color: var(--main-text-color);
+  color: $main-text-color;
   margin-bottom: 12px;
+  @include font(700, 20px, 1.15, 0.03em);
 }
 
-.label-text {
-  font-size: 12px;
-  line-height: 1.16;
-  letter-spacing: 0.01em;
-  color: var(--paragraph-text-color);
+.field {
+  margin-bottom: 10px;
 }
 
-.contact-details-field {
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+.field__label {
+  @include transition($tp: transform);
   display: flex;
   flex-direction: column;
   margin-bottom: 4px;
 }
 
-.field-input {
+.field__text,
+.textarea__text {
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.01em;
+  color: $paragraph-text-color;
+}
+
+.field__input {
   border-color: transparent;
   outline: none;
   border: 1px solid rgba(33, 33, 33, 0.2);
@@ -70,80 +94,11 @@
   margin-top: 4px;
   padding-left: 42px;
   display: flex;
-  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.form-icon {
-  position: absolute;
-  margin-left: 12px;
-  margin-right: 12px;
-  transform: translateY(-29px) translateX(-1px);
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.field-input:focus + .form-icon {
-  fill: var(--accent-color);
-}
-
-.field-input:hover,
-.field-input:focus {
-  border: 1px solid #2196f3;
-}
-
-.form-icon:hover,
-.form-icon:focus {
-  fill: var(--accent-color);
-}
-
-.contact-field {
-  margin-bottom: 10px;
-}
-
-.checkbox-label {
-  display: flex;
-  align-items: center;
-}
-
-.checkbox {
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  border: 0;
-  padding: 0;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  margin: -1px;
-}
-
-.checkbox-icon {
-  width: 16px;
-  height: 15px;
-  border: 1px solid #000000;
-  background-color: transparent;
-  background-image: none;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 2px;
-  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-image 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.checkbox:checked + .checkbox-icon {
-  box-shadow: none;
-  border: 1px solid var(--accent-color);
-  background-color: var(--accent-color);
-  background-image: url(../images/icon-check.svg);
-  background-size: contain;
-  background-origin: border-box;
-  border-radius: 2px;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-image 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-image 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  @include transition($tp: border);
+  &:hover,
+  &:focus {
+    border: 1px solid #2196f3;
+  }
 }
 
 textarea {
@@ -157,94 +112,102 @@ textarea {
   padding-left: 16px;
   margin-top: 4px;
   font-family: "Roboto";
-  font-size: 12px;
-  line-height: 1.14;
-  letter-spacing: 0.01em;
   color: rgba(117, 117, 117, 0.5);
-  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  @include font(null, 12px, 1.14, 0.01em);
+  @include transition($tp: border);
 }
 
-.area:focus,
-.area:hover {
+.textarea__placeholder:focus,
+.textarea__placeholder:hover {
   outline: transparent;
-  border: 1px solid #2196f3;
+  border: 1px solid $accent-color;
 }
-.checkbox-label {
+
+.field__icon {
+  position: absolute;
+  margin-left: 12px;
+  margin-right: 12px;
+  @include transition($tp: fill);
+  transform: translateY(-29px) translateX(-1px);
+  &:hover,
+  &:focus {
+    fill: var(--accent-color);
+  }
+}
+
+.field__input:focus + .field__icon {
+  fill: $accent-color;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
   margin: 0 auto;
 }
 
-.close-modal-btn {
-  margin-top: 8px;
-  margin-right: 8px;
+.checkbox__input {
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  background-color: var(--second-text-color);
-  cursor: pointer;
-  display: flex;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
   padding: 0;
-  align-items: center;
-  justify-content: center;
-  z-index: 1;
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
 }
 
-.close-modal-btn:hover,
-.close-modal-btn:focus {
-  fill: var(--accent-color);
-}
-.is-hidden {
-  visibility: hidden;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.backdrop.is-hidden .modal {
-  transform: scale(1.5) translate(-50%, -50%);
-  transition: transform 3000ms cubic-bezier(0.4, 0, 0.2, 1);
+.checkbox__icon {
+  width: 16px;
+  height: 15px;
+  border: 1px solid $logo-color;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 2px;
+  @include transition($tp: border background-color box-shadow background-image);
 }
 
-.agreement {
+.checkbox__input:checked + .checkbox__icon {
+  box-shadow: none;
+  border: 1px solid $accent-color;
+  background-color: $accent-color;
+  background-image: url(../images/icon-check.svg);
+  background-size: contain;
+  background-origin: border-box;
+  border-radius: 2px;
+  @include transition($tp: background-color background-image box-shadow);
+}
+
+.checkbox__agreement {
   font-size: 14px;
   line-height: 1.71;
   letter-spacing: 0.03em;
-  color: var(--paragraph-text-color);
+  color: $paragraph-text-color;
   margin-left: 8.38px;
 }
 
-.agreement-link {
-  color: var(--accent-color);
+.agreement__link {
+  color: $accent-color;
 }
 
-.submit-btn {
-  padding-top: 10px;
-  padding-bottom: 10px;
+.checkbox__btn {
+  @extend %btn;
   padding-right: 55px;
   padding-left: 56px;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.88;
-  text-align: center;
   justify-content: center;
-  letter-spacing: 0.06em;
-  color: var(--second-text-color);
-  background-color: var(--btn-color);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
   border-color: transparent;
   max-width: 200px;
   margin: 0 auto;
   margin-top: 30px;
-  cursor: pointer;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover,
+  &:focus {
+    background-color: $btn-selection-color;
+  }
 }
 
-.submit-btn:hover,
-.submit-btn:focus {
-  background-color: var(--btn-selection-color);
+.backdrop.is-hidden .modal {
+  transform: scale(1.5) translate(-50%, -50%);
+  @include transition(transform, 3000ms, null);
 }
