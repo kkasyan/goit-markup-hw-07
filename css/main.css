@@ -433,56 +433,6 @@ textarea {
   color: #ffffff;
 }
 
-.portfolio__header {
-  border-bottom: 1px solid #ececec;
-}
-
-.portfolio__header .container {
-  background-color: #ffffff;
-}
-
-.card-set {
-  padding-top: 94px;
-  padding-bottom: 94px;
-}
-
-.card-set__menu {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 50px;
-}
-
-.card-set__item:not(:last-child) {
-  margin-right: 8px;
-}
-
-.card-set__btn {
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.62;
-  letter-spacing: 0.03em;
-  transition-property: color background-color filter;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  padding-top: 6px;
-  padding-right: 22px;
-  padding-bottom: 6px;
-  padding-left: 22px;
-  border-radius: 4px;
-  font-family: inherit;
-  cursor: pointer;
-  background-color: #f5f4fa;
-  border: 0ch;
-  color: #212121;
-  text-align: center;
-}
-.card-set__btn:hover, .card-set__btn:focus {
-  background-color: #2196f3;
-  color: #ffffff;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-}
-
 .section-header {
   font-size: 36px;
   line-height: 1.17;
@@ -968,4 +918,54 @@ textarea {
 
 .join-column--right {
   margin-right: 93px;
+}
+
+.portfolio__header {
+  border-bottom: 1px solid #ececec;
+}
+
+.portfolio__header .container {
+  background-color: #ffffff;
+}
+
+.card-set {
+  padding-top: 94px;
+  padding-bottom: 94px;
+}
+
+.card-set__menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.card-set__item:not(:last-child) {
+  margin-right: 8px;
+}
+
+.card-set__btn {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.62;
+  letter-spacing: 0.03em;
+  transition-property: color background-color filter;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  padding-top: 6px;
+  padding-right: 22px;
+  padding-bottom: 6px;
+  padding-left: 22px;
+  border-radius: 4px;
+  font-family: inherit;
+  cursor: pointer;
+  background-color: #f5f4fa;
+  border: 0ch;
+  color: #212121;
+  text-align: center;
+}
+.card-set__btn:hover, .card-set__btn:focus {
+  background-color: #2196f3;
+  color: #ffffff;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }/*# sourceMappingURL=main.css.map */
